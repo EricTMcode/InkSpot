@@ -8,18 +8,30 @@
 import Foundation
 
 class TatooListViewModel: ObservableObject {
-    @Published var tattos: [Tattoo] = []
+    @Published var tattooArray: [Tattoo] = []
     
     init() {
-        tattos = [Tattoo(description: "Mom", location: "💪", notes: "Stay Swifty!"),
+        tattooArray = [Tattoo(description: "Mom", location: "💪", notes: "Stay Swifty!"),
                   Tattoo(description: "Thug Life", location: "👕", notes: "In memory of Tupac!")]
     }
     
+    func saveTattoo(tattoo: Tattoo) {
+        if tattoo.id == nil {
+            var newTattoo = tattoo
+            newTattoo.id = UUID().uuidString
+            tattooArray.append(newTattoo)
+        } else {
+            if let index = tattooArray.firstIndex(where: { $0.id == tattoo.id }) {
+                tattooArray[index] = tattoo
+            }
+        }
+    }
+    
     func deleteTattoo(indexSet: IndexSet) {
-        tattos.remove(atOffsets: indexSet)
+        tattooArray.remove(atOffsets: indexSet)
     }
     
     func moveTattoo(fromOffsets: IndexSet, toOffset: Int) {
-        tattos.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        tattooArray.move(fromOffsets: fromOffsets, toOffset: toOffset)
     }
 }

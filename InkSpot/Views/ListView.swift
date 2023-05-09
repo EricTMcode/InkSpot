@@ -14,7 +14,7 @@ struct ListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(tattooVM.tattos, id: \.self) { tattoo in
+                ForEach(tattooVM.tattooArray, id: \.self) { tattoo in
                     NavigationLink {
                         DetailView(tattoo: tattoo)
                     } label: {

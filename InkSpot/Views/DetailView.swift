@@ -49,6 +49,7 @@ struct DetailView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Save") {
+                    tattooVM.saveTattoo(tattoo: tattoo)
                     dismiss()
                 }
             }
