@@ -11,8 +11,7 @@ class TatooListViewModel: ObservableObject {
     @Published var tattooArray: [Tattoo] = []
     
     init() {
-        tattooArray = [Tattoo(description: "Mom", location: .leftArm, notes: "Stay Swifty!"),
-                       Tattoo(description: "Thug Life", location: .torso, notes: "In memory of Tupac!")]
+        loadData()
     }
     
     func saveTattoo(tattoo: Tattoo) {
@@ -25,13 +24,38 @@ class TatooListViewModel: ObservableObject {
                 tattooArray[index] = tattoo
             }
         }
+        saveData()
     }
     
     func deleteTattoo(indexSet: IndexSet) {
         tattooArray.remove(atOffsets: indexSet)
+        saveData()
     }
     
     func moveTattoo(fromOffsets: IndexSet, toOffset: Int) {
         tattooArray.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        saveData()
+    }
+    
+    //MARK: - DOCUMENTS DIRECTORY
+    
+    let path = URL.documentsDirectory.appending(component: "tattooArray")
+    
+    func saveData() {
+        let data = try? JSONEncoder().encode(tattooArray)
+        do {
+            try data?.write(to: path)
+        } catch {
+            print("😡 ERROR: Could not save data \(error.localizedDescription)")
+        }
+    }
+    
+    func loadData() {
+        guard let data = try? Data(contentsOf: path) else { return }
+        do {
+            tattooArray = try JSONDecoder().decode([Tattoo].self, from: data)
+        } catch {
+            saveData()
+        }
     }
 }
