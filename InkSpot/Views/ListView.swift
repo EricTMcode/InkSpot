@@ -29,6 +29,7 @@ struct ListView: View {
                     }
                 }
                 .onDelete(perform: tattooVM.deleteTattoo)
+                .onMove(perform: tattooVM.moveTattoo)
             }
             .listStyle(.plain)
             .navigationTitle("Tattoo")

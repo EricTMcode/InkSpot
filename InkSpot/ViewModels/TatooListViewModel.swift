@@ -18,4 +18,8 @@ class TatooListViewModel: ObservableObject {
     func deleteTattoo(indexSet: IndexSet) {
         tattos.remove(atOffsets: indexSet)
     }
+    
+    func moveTattoo(fromOffsets: IndexSet, toOffset: Int) {
+        tattos.move(fromOffsets: fromOffsets, toOffset: toOffset)
+    }
 }
