@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class TatooListViewModel: ObservableObject {
+    @Published var tattos: [Tattoo] = []
+    
+    
+}
