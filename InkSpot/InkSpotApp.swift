@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct InkSpotApp: App {
-    @StateObject var tatooVM = TatooListViewModel()
+    @StateObject var tattooVM = TattooListViewModel()
     
     var body: some Scene {
         WindowGroup {
             ListView()
-                .environmentObject(tatooVM)
+                .environmentObject(tattooVM)
         }
     }
 }

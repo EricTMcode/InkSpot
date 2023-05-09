@@ -8,30 +8,28 @@
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject var tattooVM: TatooListViewModel
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var tattooVM: TattooListViewModel
     @State var tattoo: Tattoo
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Description:")
-                .font(.title)
                 .bold()
             TextField("Description", text: $tattoo.description)
-                .font(.title3)
                 .padding(.bottom)
             Divider()
             
             HStack {
                 Text("Location:")
-                    .font(.title)
                     .bold()
                 
                 Spacer()
                 
                 Picker("", selection: $tattoo.location) {
                     ForEach(Location.allCases, id: \.self) { location in
-                        Text(location.rawValue)
+                        Text("\(location.emoji()) \(formatPicker(location: location))")
+                            .tag(location)
                     }
                 }
             }
@@ -39,14 +37,13 @@ struct DetailView: View {
             Divider()
             
             Text("Notes:")
-                .font(.title)
                 .bold()
-            TextField("Notes", text: $tattoo.notes)
-                .font(.title3)
+            TextField("Notes", text: $tattoo.notes, axis: .vertical)
             
             Spacer()
             
         }
+        .font(.title2)
         .textFieldStyle(.roundedBorder)
         .padding()
         .toolbar {
@@ -65,13 +62,18 @@ struct DetailView: View {
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    func formatPicker(location: Location) -> String {
+        let formattingString = location.rawValue.replacingOccurrences(of: "_", with: " ")
+        return formattingString.capitalized
+    }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             DetailView(tattoo: Tattoo.example)
-                .environmentObject(TatooListViewModel())
+                .environmentObject(TattooListViewModel())
         }
     }
 }

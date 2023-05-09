@@ -7,8 +7,8 @@
 
 import Foundation
 
-class TatooListViewModel: ObservableObject {
-    @Published var tattooArray: [Tattoo] = []
+class TattooListViewModel: ObservableObject {
+    @Published var tatoos: [Tattoo] = []
     
     init() {
         loadData()
@@ -18,22 +18,22 @@ class TatooListViewModel: ObservableObject {
         if tattoo.id == nil {
             var newTattoo = tattoo
             newTattoo.id = UUID().uuidString
-            tattooArray.append(newTattoo)
+            tatoos.append(newTattoo)
         } else {
-            if let index = tattooArray.firstIndex(where: { $0.id == tattoo.id }) {
-                tattooArray[index] = tattoo
+            if let index = tatoos.firstIndex(where: { $0.id == tattoo.id }) {
+                tatoos[index] = tattoo
             }
         }
         saveData()
     }
     
     func deleteTattoo(indexSet: IndexSet) {
-        tattooArray.remove(atOffsets: indexSet)
+        tatoos.remove(atOffsets: indexSet)
         saveData()
     }
     
     func moveTattoo(fromOffsets: IndexSet, toOffset: Int) {
-        tattooArray.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        tatoos.move(fromOffsets: fromOffsets, toOffset: toOffset)
         saveData()
     }
     
@@ -42,7 +42,7 @@ class TatooListViewModel: ObservableObject {
     let path = URL.documentsDirectory.appending(component: "tattooArray")
     
     func saveData() {
-        let data = try? JSONEncoder().encode(tattooArray)
+        let data = try? JSONEncoder().encode(tatoos)
         do {
             try data?.write(to: path)
         } catch {
@@ -53,7 +53,7 @@ class TatooListViewModel: ObservableObject {
     func loadData() {
         guard let data = try? Data(contentsOf: path) else { return }
         do {
-            tattooArray = try JSONDecoder().decode([Tattoo].self, from: data)
+            tatoos = try JSONDecoder().decode([Tattoo].self, from: data)
         } catch {
             saveData()
         }

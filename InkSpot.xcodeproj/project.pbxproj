@@ -12,7 +12,7 @@
 		07D605752A0A6082005982B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D605742A0A6082005982B0 /* Assets.xcassets */; };
 		07D605782A0A6082005982B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D605772A0A6082005982B0 /* Preview Assets.xcassets */; };
 		07D605832A0A6197005982B0 /* Tattoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D605822A0A6197005982B0 /* Tattoo.swift */; };
-		07D605872A0A62A0005982B0 /* TatooListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D605862A0A62A0005982B0 /* TatooListViewModel.swift */; };
+		07D605872A0A62A0005982B0 /* TattooListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D605862A0A62A0005982B0 /* TattooListViewModel.swift */; };
 		07D605892A0A6367005982B0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D605882A0A6367005982B0 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		07D605742A0A6082005982B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07D605772A0A6082005982B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07D605822A0A6197005982B0 /* Tattoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tattoo.swift; sourceTree = "<group>"; };
-		07D605862A0A62A0005982B0 /* TatooListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TatooListViewModel.swift; sourceTree = "<group>"; };
+		07D605862A0A62A0005982B0 /* TattooListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooListViewModel.swift; sourceTree = "<group>"; };
 		07D605882A0A6367005982B0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +88,7 @@
 		07D6057F2A0A60C9005982B0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				07D605862A0A62A0005982B0 /* TatooListViewModel.swift */,
+				07D605862A0A62A0005982B0 /* TattooListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			files = (
 				07D605732A0A6081005982B0 /* ListView.swift in Sources */,
 				07D605832A0A6197005982B0 /* Tattoo.swift in Sources */,
-				07D605872A0A62A0005982B0 /* TatooListViewModel.swift in Sources */,
+				07D605872A0A62A0005982B0 /* TattooListViewModel.swift in Sources */,
 				07D605892A0A6367005982B0 /* DetailView.swift in Sources */,
 				07D605712A0A6081005982B0 /* InkSpotApp.swift in Sources */,
 			);

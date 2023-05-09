@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct ListView: View {
-    @EnvironmentObject private var tattooVM: TatooListViewModel
+    @EnvironmentObject private var tattooVM: TattooListViewModel
     @State private var sheetIsPresented = false
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(tattooVM.tattooArray, id: \.self) { tattoo in
+                ForEach(tattooVM.tatoos) { tattoo in
                     NavigationLink {
                         DetailView(tattoo: tattoo)
                     } label: {
                         VStack(alignment: .leading) {
                             HStack {
-                                Text(tattoo.location.rawValue)
+                                Text(tattoo.location.emoji())
                                 Text(tattoo.description)
                             }
                             .font(.title)
                             Text(tattoo.notes)
                                 .italic()
                                 .font(.title3)
+                                .lineLimit(1)
                         }
                     }
                 }
@@ -59,6 +60,6 @@ struct ListView: View {
 struct TatooListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()
-            .environmentObject(TatooListViewModel())
+            .environmentObject(TattooListViewModel())
     }
 }
