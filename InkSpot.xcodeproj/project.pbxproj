@@ -52,7 +52,9 @@
 			isa = PBXGroup;
 			children = (
 				07D605702A0A6081005982B0 /* InkSpotApp.swift */,
-				07D605722A0A6081005982B0 /* ContentView.swift */,
+				07D605802A0A60CE005982B0 /* Views */,
+				07D6057F2A0A60C9005982B0 /* ViewModels */,
+				07D6057E2A0A60C2005982B0 /* Models */,
 				07D605742A0A6082005982B0 /* Assets.xcassets */,
 				07D605762A0A6082005982B0 /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				07D605772A0A6082005982B0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07D6057E2A0A60C2005982B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07D6057F2A0A60C9005982B0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07D605802A0A60CE005982B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07D605722A0A6081005982B0 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
