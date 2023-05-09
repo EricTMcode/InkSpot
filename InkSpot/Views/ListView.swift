@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ListView: View {
     @EnvironmentObject private var tattooVM: TatooListViewModel
+    @State private var sheetIsPresented = false
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(tattooVM.tattos) { tattoo in
+                ForEach(tattooVM.tattos, id: \.self) { tattoo in
                     NavigationLink {
                         DetailView(tattoo: tattoo)
                     } label: {
@@ -27,9 +28,27 @@ struct ListView: View {
                         }
                     }
                 }
+                .onDelete(perform: tattooVM.deleteTattoo)
             }
             .listStyle(.plain)
             .navigationTitle("Tattoo")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        sheetIsPresented.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $sheetIsPresented) {
+                NavigationStack {
+                    DetailView(tattoo: Tattoo())
+                }
+            }
         }
     }
 }

@@ -8,11 +8,11 @@
 import Foundation
 
 
-struct Tattoo: Codable, Identifiable {
-    var id = UUID().uuidString
-    var description: String
-    var location: String
-    var notes: String
+struct Tattoo: Codable, Identifiable, Hashable {
+    var id: String?
+    var description = ""
+    var location = ""
+    var notes = ""
     
     static let example = Tattoo(description: "Mom", location: "💪", notes: "Stay Swifty!")
 }

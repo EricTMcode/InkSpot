@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject private var tattooVM: TatooListViewModel
+    @EnvironmentObject var tattooVM: TatooListViewModel
     @Environment(\.dismiss) private var dismiss
     @State var tattoo: Tattoo
     

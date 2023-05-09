@@ -14,4 +14,8 @@ class TatooListViewModel: ObservableObject {
         tattos = [Tattoo(description: "Mom", location: "💪", notes: "Stay Swifty!"),
                   Tattoo(description: "Thug Life", location: "👕", notes: "In memory of Tupac!")]
     }
+    
+    func deleteTattoo(indexSet: IndexSet) {
+        tattos.remove(atOffsets: indexSet)
+    }
 }
