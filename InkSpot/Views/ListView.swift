@@ -20,11 +20,13 @@ struct ListView: View {
                     } label: {
                         VStack(alignment: .leading) {
                             HStack {
-                                Text(tattoo.location)
+                                Text(tattoo.location.rawValue)
                                 Text(tattoo.description)
                             }
                             .font(.title)
                             Text(tattoo.notes)
+                                .italic()
+                                .font(.title3)
                         }
                     }
                 }

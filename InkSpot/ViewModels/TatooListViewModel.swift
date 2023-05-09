@@ -11,8 +11,8 @@ class TatooListViewModel: ObservableObject {
     @Published var tattooArray: [Tattoo] = []
     
     init() {
-        tattooArray = [Tattoo(description: "Mom", location: "💪", notes: "Stay Swifty!"),
-                  Tattoo(description: "Thug Life", location: "👕", notes: "In memory of Tupac!")]
+        tattooArray = [Tattoo(description: "Mom", location: .leftArm, notes: "Stay Swifty!"),
+                       Tattoo(description: "Thug Life", location: .torso, notes: "In memory of Tupac!")]
     }
     
     func saveTattoo(tattoo: Tattoo) {

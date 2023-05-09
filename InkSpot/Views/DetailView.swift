@@ -22,12 +22,20 @@ struct DetailView: View {
                 .padding(.bottom)
             Divider()
             
-            Text("Location:")
-                .font(.title)
-                .bold()
-            TextField("Location", text: $tattoo.location)
-                .font(.title3)
-                .padding(.bottom)
+            HStack {
+                Text("Location:")
+                    .font(.title)
+                    .bold()
+                
+                Spacer()
+                
+                Picker("", selection: $tattoo.location) {
+                    ForEach(Location.allCases, id: \.self) { location in
+                        Text(location.rawValue)
+                    }
+                }
+            }
+            
             Divider()
             
             Text("Notes:")
