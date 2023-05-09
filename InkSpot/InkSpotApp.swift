@@ -11,7 +11,7 @@ import SwiftUI
 struct InkSpotApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TatooListView()
         }
     }
 }

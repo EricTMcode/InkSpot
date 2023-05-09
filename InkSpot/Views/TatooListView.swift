@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TatooListView.swift
 //  InkSpot
 //
 //  Created by Eric on 09/05/2023.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TatooListView: View {
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,8 +20,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TatooListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TatooListView()
     }
 }
