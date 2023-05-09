@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject var tatooListVM: TatooListViewModel
+    @EnvironmentObject private var tattooVM: TatooListViewModel
+    @Environment(\.dismiss) private var dismiss
     @State var tattoo: Tattoo
     
     var body: some View {
@@ -40,12 +41,26 @@ struct DetailView: View {
         }
         .textFieldStyle(.roundedBorder)
         .padding()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Cancel") {
+                    dismiss()
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Save") {
+                    dismiss()
+                }
+            }
+        }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(tattoo: Tattoo.example)
-            .environmentObject(TatooListViewModel())
+        NavigationStack {
+            DetailView(tattoo: Tattoo.example)
+                .environmentObject(TatooListViewModel())
+        }
     }
 }
